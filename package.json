@@ -1,0 +1,29 @@
+{
+  "name": "sync-proxy",
+  "version": "0.0.1-beta.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register test/**/*.ts",
+    "dist": "rollup -c ./rollup.config.js",
+    "dist:dev": "rollup -w -c ./rollup.config.js",
+    "publish2npm": "npm run dist && npm publish -access public"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/chai": "^4.1.6",
+    "@types/mocha": "^5.2.5",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "rollup": "^0.66.2",
+    "rollup-plugin-typescript": "^1.0.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.1",
+    "uglify-es": "^3.3.9"
+  },
+  "dependencies": {
+    "tslib": "^1.9.3"
+  }
+}
