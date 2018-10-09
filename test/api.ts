@@ -1,7 +1,8 @@
-import { syncObjectProxyL1 } from "../src/SyncProxy";
+import { syncProxy } from "../src/SyncProxy";
 
 class Api {
     private readonly args: any[] = [];
+    public api = this;
     public promisedApi = Promise.resolve(this);
 
     async promiseApiReturningFunc(...args: any[]): Promise<this> {
@@ -27,5 +28,5 @@ class Api {
 
 export const api = new Api();
 
-export const apiSync = syncObjectProxyL1(api);
+export const apiSync = syncProxy(api);
 export const SUCCESS_STR = "success";
