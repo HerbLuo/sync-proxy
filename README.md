@@ -5,7 +5,7 @@
 
 file: `index.js`:
 ```ecmascript 6
-import syncProxy from 'sync-proxy'
+import syncProxy from '@o2v/sync-proxy'
 import task from './task.js'
 
 const taskSync = syncProxy(task)
@@ -40,7 +40,7 @@ export default task
 
 ##### RunKit + npm
 ```ecmascript 6
-var syncProxy = require('sync-proxy')
+var syncProxy = require('@o2v/sync-proxy')
 
 class Task {
   constructor () {
