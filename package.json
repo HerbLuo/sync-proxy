@@ -1,8 +1,14 @@
 {
   "name": "@o2v/sync-proxy",
-  "version": "0.0.1-beta.2",
+  "version": "0.0.1-beta.3",
   "description": "[sync-proxy] let you write async task chains using synchronous syntax.",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "typings": "index.ts",
+  "files": [
+    "lib",
+    "src",
+    "index.ts"
+  ],
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.ts",
     "dist": "rollup -c ./rollup.config.js",
