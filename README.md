@@ -3,11 +3,13 @@
 
 ### usage
 
+##### install 
+
 `yarn add @o2v/sync-proxy`  
 
 `npm i @o2v/sync-proxy --save`
 
-##### module
+##### for module
 
 file: `index.js`:
 ```javascript
@@ -44,7 +46,7 @@ export default task
 
 ```
 
-##### RunKit + npm
+##### for RunKit + npm
 ```javascript
 var syncProxy = require('@o2v/sync-proxy')
 
