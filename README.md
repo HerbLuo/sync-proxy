@@ -3,6 +3,10 @@
 
 ### usage
 
+`yarn add @o2v/sync-proxy`  
+
+`npm i @o2v/sync-proxy --save`
+
 ##### module
 
 file: `index.js`:

@@ -31,6 +31,7 @@
     "promise-returning-function",
     "chain",
     "synchronous",
-    "proxy"
+    "proxy",
+    "async"
   ]
 }
