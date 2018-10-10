@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { apiSync, SUCCESS_STR } from "./api";
 
-describe('SyncProxy test', () => {
+describe('SyncProxy test level 1', () => {
     it ('level 1 call', async () => {
         expect(apiSync.success).to.equal(SUCCESS_STR);
 

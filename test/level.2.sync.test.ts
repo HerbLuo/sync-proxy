@@ -1,7 +1,7 @@
 import { apiSync, SUCCESS_STR } from "./api";
 import { expect } from 'chai'
 
-describe('SyncProxy test', () => {
+describe('SyncProxy test level 2', () => {
     it('level 2 sync', async () => {
         expect(await apiSync.promisedApi
             .successPromiseReturningFunc('e', 'f')

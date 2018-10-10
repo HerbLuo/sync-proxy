@@ -1,7 +1,7 @@
 {
-  "name": "sync-proxy",
+  "name": "@o2v/sync-proxy",
   "version": "0.0.1-beta.1",
-  "description": "",
+  "description": "[sync-proxy] let you write async task chains using synchronous syntax.",
   "main": "index.js",
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.ts",
@@ -9,8 +9,8 @@
     "dist:dev": "rollup -w -c ./rollup.config.js",
     "publish2npm": "npm run dist && npm publish -access public"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "herbluo",
+  "license": "MIT",
   "devDependencies": {
     "@types/chai": "^4.1.6",
     "@types/mocha": "^5.2.5",
@@ -25,5 +25,12 @@
   },
   "dependencies": {
     "tslib": "^1.9.3"
-  }
+  },
+  "keywords": [
+    "promise",
+    "promise-returning-function",
+    "chain",
+    "synchronous",
+    "proxy"
+  ]
 }
