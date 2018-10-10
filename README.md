@@ -3,6 +3,8 @@
 
 ### usage
 
+##### module
+
 file: `index.js`:
 ```javascript
 import syncProxy from '@o2v/sync-proxy'
