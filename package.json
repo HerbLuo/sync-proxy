@@ -1,6 +1,6 @@
 {
   "name": "@o2v/sync-proxy",
-  "version": "0.0.1-beta.1",
+  "version": "0.0.1-beta.2",
   "description": "[sync-proxy] let you write async task chains using synchronous syntax.",
   "main": "index.js",
   "scripts": {
