@@ -1,7 +1,8 @@
-import { syncProxy } from "./src/SyncProxy";
+import { syncProxy, setPromisePropertyNames } from "./src/SyncProxy";
 
 export * from './src/utils/types';
 export default syncProxy;
 export {
-    syncProxy
+    syncProxy,
+    setPromisePropertyNames
 };

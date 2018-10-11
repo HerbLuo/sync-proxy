@@ -7,7 +7,7 @@ import {
     WithSyncUnWarpPromise
 } from "./utils/types";
 
-const promiseProperties: string[] = ["then", "catch", "finally"];
+let promiseProperties: string[] = ["then", "catch", "finally"];
 
 function withSyncUnWarpPromise<T>(promise: T): WithSyncUnWarpPromise<T> {
     // obj is a promise or sync-data
@@ -74,9 +74,14 @@ function unWarpIfReturnTypeIsPromise<T extends Function>(func: T)
     })
 }
 
-function syncProxyLN<T>(obj: T): SyncProxyLN<T> {
+function syncProxyLN<T>(obj: T)
+    : T extends Promise<any> ? WithSyncUnWarpPromise<T> : SyncProxyLN<T> {
     if (!isObject(obj) && !isFunction(obj)) {
         return obj as any
+    }
+
+    if (isPromiseLike(obj)) {
+        return withSyncUnWarpPromise(obj as any)
     }
 
     return new Proxy(obj, {
@@ -91,3 +96,6 @@ function syncProxyLN<T>(obj: T): SyncProxyLN<T> {
 }
 
 export const syncProxy = syncProxyLN;
+export function setPromisePropertyNames(names: string[]) {
+    promiseProperties = names
+}

@@ -1,7 +1,11 @@
 # sync-proxy
 [sync-proxy] let you write async task chains using synchronous syntax.
 
-### usage
+[sync-proxy] has first-class `typescript` support to help build robust applications. 
+
+-----
+
+### 1. Usages
 
 ##### install 
 
@@ -9,9 +13,7 @@
 
 `npm i @o2v/sync-proxy --save`
 
-##### for module
-
-file: `index.js`:
+File `index.js`:
 ```javascript
 import syncProxy from '@o2v/sync-proxy'
 import task from './task.js'
@@ -27,7 +29,7 @@ taskSync
 
 ```
 
-file: `task.js`:
+File `task.js`:
 ```javascript
 class Task {
   constructor () {
@@ -46,7 +48,7 @@ export default task
 
 ```
 
-##### for RunKit + npm
+##### Edit in RunKit + npm
 ```javascript
 var syncProxy = require('@o2v/sync-proxy')
 
@@ -83,8 +85,22 @@ taskSync
   .taskPromise
   .task
   .task
-  // any sync or async property or call ....
+  // any sync and async properties or calls ....
   .getSuccessPromise()
   .then(console.log) // print 'success'
-
 ```
+
+### 2. Limitations
+
+##### 1. you will never console.log or serialize a synced object
+```javascript
+console.log(taskSync.taskPromise) // stack overflow error
+console.log(await taskSync.taskPromise) // it may work
+```
+##### 2. [BUG] promise.then do not return a promise, it will be fixed in the next release.
+```javascript
+taskSync.taskPromise.getSuccessPromise()
+  .then(console.log) // print success
+  .then(console.log) // unable run as expected
+```
+##### 3. typeof do not work

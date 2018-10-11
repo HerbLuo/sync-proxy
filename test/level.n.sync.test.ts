@@ -1,5 +1,7 @@
 import { expect } from 'chai'
 import { apiSync, SUCCESS_STR } from "./api";
+import { syncProxy } from "../src/SyncProxy";
+import { SyncProxy, UnWarpIfPromise } from "../src/utils/types";
 
 describe('SyncProxy Test level n', () => {
     it('level n test', async () => {
