@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "target": "es6",
-    "outDir": "./lib/",
-    "lib": ["esnext"],
-    "strict": true,
-    "moduleResolution": "node",
+    "declaration": true,
+    "declarationDir": "./typings",
+    "experimentalDecorators": true,
     "importHelpers": true,
-    "experimentalDecorators": true
+    "lib": ["esnext"],
+    "moduleResolution": "node",
+    "outDir": "./tsc-out/",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6"
   },
   "exclude": [
     "node_modules"

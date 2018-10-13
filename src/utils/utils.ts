@@ -1,6 +1,3 @@
-// explicitness and function inlining
-/* eslint-disable */
-
 export function isPositive(obj: any): boolean {
     return !!obj
 }

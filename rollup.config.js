@@ -1,8 +1,5 @@
-import typescript from 'typescript'
-import rollupTypescript from 'rollup-plugin-typescript'
-
 export default [{
-  input: 'index.ts',
+  input: 'tsc-out/index.js',
   output: [{
     file: 'lib/index.esm.js',
     format: 'es',
@@ -20,9 +17,6 @@ export default [{
     }
   }],
   plugins: [
-    rollupTypescript({
-      typescript
-    }),
   ],
   external: [
     'tslib'

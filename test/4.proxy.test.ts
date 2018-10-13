@@ -13,4 +13,8 @@ describe('SyncProxy test for proxy', () => {
         expect(await proxied.api.promisedApi.successPromiseReturningFunc('a', 'b'))
             .to.equal(SUCCESS_STR);
     });
+
+    it('', async () => {
+        expect(apiSync.getResultProxy().successReturningFunc()).to.equal(SUCCESS_STR)
+    })
 });

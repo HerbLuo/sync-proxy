@@ -24,7 +24,31 @@ class Api {
     getArgs() {
         return this.args
     }
+
+    // noinspection JSMethodCanBeStatic
+    getResultProxy(): Result {
+        return new Proxy(result, {
+            get(target, key, receiver) {
+                return Reflect.get(target, key, receiver)
+            }
+        })
+    }
+
 }
+
+class Result {
+    private property = 'success';
+
+    successReturningFunc() {
+        return this.property
+    }
+
+    successPromiseReturningFunc() {
+        return Promise.resolve(this.property)
+    }
+}
+
+const result = new Result();
 
 export const api = new Api();
 

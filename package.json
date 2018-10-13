@@ -3,17 +3,16 @@
   "version": "0.0.1-beta.8",
   "description": "[sync-proxy] let you write async task chains using synchronous syntax.",
   "main": "lib/index.js",
-  "typings": "index.ts",
+  "typings": "typings/index.d.ts",
   "files": [
     "lib",
-    "src",
-    "index.ts"
+    "typings"
   ],
   "scripts": {
     "test": "mocha -r ts-node/register test/**/*.ts",
-    "dist": "rollup -c ./rollup.config.js",
-    "dist:dev": "rollup -w -c ./rollup.config.js",
-    "publish2npm": "npm run dist && npm publish -access public"
+    "dist:tsc": "rimraf typings tsc-out && tsc",
+    "dist": "npm run dist:tsc && rollup -c ./rollup.config.js",
+    "publish2npm": "npm run test && npm run dist && npm publish -access public"
   },
   "author": "herbluo",
   "license": "MIT",
@@ -22,6 +21,7 @@
     "@types/mocha": "^5.2.5",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
+    "rimraf": "^2.6.2",
     "rollup": "^0.66.2",
     "rollup-plugin-typescript": "^1.0.0",
     "rollup-plugin-uglify": "^6.0.0",
