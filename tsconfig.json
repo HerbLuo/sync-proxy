@@ -6,7 +6,7 @@
     "importHelpers": true,
     "lib": ["esnext"],
     "moduleResolution": "node",
-    "outDir": "./tsc-out/",
+    "outDir": "./tsc-out",
     "sourceMap": true,
     "strict": true,
     "target": "es6"
