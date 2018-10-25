@@ -90,7 +90,25 @@ taskSync
   .then(console.log) // print 'success'
 ```
 
-### 2. Limitations
+### 2. Notifications
+
+##### 1. if an async task returning a proxy, don't let it like a promise.
+```javascript
+class Task {
+    proxyReturningFunc() {
+        return new Proxy({}, {
+            get(_, key, receiver) {
+                if (key === 'then') { // it may needed
+                    return undefined
+                }
+                return (...args) => {}
+            }
+        })
+    }
+}
+```
+
+### 3. Limitations
 
 ##### 1. you will never console.log or serialize a synced object
 ```javascript

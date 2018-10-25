@@ -10,7 +10,7 @@ export default [{
   }, {
     file: 'lib/index.umd.js',
     format: 'umd',
-    name: 'QxzLApi',
+    name: 'SyncProxy',
     exports: 'named',
     globals: {
       tslib: 'tslib',

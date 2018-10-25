@@ -1,8 +1,9 @@
 {
   "name": "@o2v/sync-proxy",
-  "version": "0.0.1-beta.8",
+  "version": "0.1.0",
   "description": "[sync-proxy] let you write async task chains using synchronous syntax.",
   "main": "lib/index.js",
+  "module": "lib/index.esm.js",
   "typings": "typings/index.d.ts",
   "files": [
     "lib",
