@@ -118,16 +118,16 @@ taskSync
 ##### 1. if an async task returning a proxy, don't let it like a promise.
 ```javascript
 class Task {
-    proxyReturningFunc() {
-        return new Proxy({}, {
-            get(_, key, receiver) {
-                if (key === 'then') { // it may needed
-                    return undefined
-                }
-                return (...args) => {}
-            }
-        })
-    }
+  proxyReturningFunc() {
+    return new Proxy({}, {
+      get(_, key, receiver) {
+        if (key === 'then') { // it may needed
+          return undefined
+        }
+        return (...args) => {}
+      }
+    })
+  }
 }
 ```
 
