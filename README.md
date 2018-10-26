@@ -48,6 +48,29 @@ export default task
 
 ```
 
+Before using syncProxy, u should:
+```javascript
+import syncProxy from '@o2v/sync-proxy'
+import task from './task.js'
+
+const getSuccess = async () => {
+  const task2 = await taskSync
+    .task
+    .taskPromise
+  
+  const task3 = await task2
+    .getTaskPromise()
+  
+  const result = task3
+    .getSuccess()
+
+  console.log(result) // print 'success'
+}
+
+getSuccess()
+
+```
+
 ##### Edit in RunKit + npm
 ```javascript
 var syncProxy = require('@o2v/sync-proxy')
