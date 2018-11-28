@@ -115,13 +115,13 @@ taskSync
 
 ### 2. Notifications
 
-##### 1. if an async task returning a proxy, don't let it like a promise.
+##### 1. if an async task returning a proxy, make it promise-unlike.
 ```javascript
 class Task {
   proxyReturningFunc() {
     return new Proxy({}, {
       get(_, key, receiver) {
-        if (key === 'then') { // it may needed
+        if (key === 'then') { // it's important
           return undefined
         }
         return (...args) => {}
