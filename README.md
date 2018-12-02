@@ -113,7 +113,7 @@ taskSync
   .then(console.log) // print 'success'
 ```
 
-### 2. Notifications
+### 2. Todos
 
 ##### 1. if an async task returning a proxy, make it promise-unlike.
 ```javascript
