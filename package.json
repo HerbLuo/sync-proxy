@@ -1,6 +1,6 @@
 {
   "name": "@o2v/sync-proxy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "[sync-proxy] let you write async task chains using synchronous syntax.",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -10,10 +10,11 @@
     "typings"
   ],
   "scripts": {
-    "test": "mocha -r ts-node/register test/**/*.ts",
-    "dist:tsc": "rimraf typings tsc-out && tsc",
+    "dist:tsc": "rimraf typings tsc-out && tsc && rimraf typings/test",
     "dist": "npm run dist:tsc && rollup -c ./rollup.config.js",
-    "publish2npm": "npm run test && npm run dist && npm publish -access public"
+    "lint": "tslint src/** test/** index.ts",
+    "publish2npm": "npm run lint && npm run test && npm run dist && npm publish -access public",
+    "test": "mocha -r ts-node/register test/**/*.ts"
   },
   "author": "herbluo",
   "license": "MIT",
@@ -27,11 +28,17 @@
     "rollup-plugin-typescript": "^1.0.0",
     "rollup-plugin-uglify": "^6.0.0",
     "ts-node": "^7.0.1",
-    "typescript": "^3.1.1",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.17.0",
+    "typescript": "^3.2.2",
     "uglify-es": "^3.3.9"
   },
   "dependencies": {
     "tslib": "^1.9.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HerbLuo/sync-proxy.git"
   },
   "keywords": [
     "promise",

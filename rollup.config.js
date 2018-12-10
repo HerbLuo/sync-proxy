@@ -6,12 +6,10 @@ export default [{
   }, {
     file: 'lib/index.js',
     format: 'cjs',
-    exports: 'named',
   }, {
     file: 'lib/index.umd.js',
     format: 'umd',
     name: 'SyncProxy',
-    exports: 'named',
     globals: {
       tslib: 'tslib',
     }

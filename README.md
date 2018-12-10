@@ -1,7 +1,7 @@
 # sync-proxy
-[sync-proxy] let you write async task chains using synchronous syntax.
+`[sync-proxy]` let you write async task chains using synchronous syntax.
 
-[sync-proxy] has first-class `typescript` support to help build robust applications. 
+`[sync-proxy]` has first-class `typescript` support to help build robust applications. 
 
 -----
 
@@ -15,7 +15,7 @@
 
 File `index.js`:
 ```javascript
-import syncProxy from '@o2v/sync-proxy'
+import { syncProxy } from '@o2v/sync-proxy'
 import task from './task.js'
 
 const taskSync = syncProxy(task)
@@ -50,7 +50,7 @@ export default task
 
 Before using syncProxy, u should:
 ```javascript
-import syncProxy from '@o2v/sync-proxy'
+import { syncProxy } from '@o2v/sync-proxy'
 import task from './task.js'
 
 const getSuccess = async () => {
@@ -73,7 +73,7 @@ getSuccess()
 
 ##### Edit in RunKit + npm
 ```javascript
-var syncProxy = require('@o2v/sync-proxy')
+var { syncProxy } = require('@o2v/sync-proxy')
 
 class Task {
   constructor () {

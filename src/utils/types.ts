@@ -7,11 +7,11 @@ export type ReturnType<T> = T extends (...args: any[]) => infer R ? R : never;
 export type ReplaceReturnType<T, TNewReturn> = (...a: ArgumentTypes<T>) => TNewReturn;
 
 export type WithSyncUnWarpPromise<T> = SyncProxyLN<UnWarpIfPromise<T>> & T
-export type UnWarpPropertyValueLN<T> = T extends Function
-    ? ReplaceReturnType<T, WithSyncUnWarpPromise<ReturnType<T>>>
-    : WithSyncUnWarpPromise<T>;
+export type UnWarpPropertyValueLN<T> = T extends (...args: any[]) => any
+  ? ReplaceReturnType<T, WithSyncUnWarpPromise<ReturnType<T>>>
+  : WithSyncUnWarpPromise<T>;
 export type SyncProxyLN<T> = {
-    [P in keyof T]: UnWarpPropertyValueLN<T[P]>;
+  [P in keyof T]: UnWarpPropertyValueLN<T[P]>;
 }
 
 export type SyncProxy<T> = SyncProxyLN<T>;
