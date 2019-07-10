@@ -1,7 +1,7 @@
 # sync-proxy
-`[sync-proxy]` let you write async task chains using synchronous syntax.
+`[sync-proxy]` 将异步链的写法改为同步链的写法.
 
-`[sync-proxy]` has first-class `typescript` support to help build robust applications. 
+`[sync-proxy]` 具有一流的 `typescript` 支持. 
 
 -----
 
@@ -21,9 +21,9 @@ import task from './task.js'
 const taskSync = syncProxy(task)
 
 taskSync
-  .task
-  .taskPromise
-  .getTaskPromise()
+  .task 
+  .taskPromise       // taskPromise 原本是一个Promise对象
+  .getTaskPromise()  // getTaskPromise 原本返回一个Promise
   .getSuccess()
   .then(console.log) // print 'success'
 
@@ -48,7 +48,7 @@ export default task
 
 ```
 
-Before using syncProxy, u should:
+如果不使用 syncProxy, 你可能需要这样写代码:
 ```javascript
 import { syncProxy } from '@o2v/sync-proxy'
 import task from './task.js'
@@ -113,9 +113,9 @@ taskSync
   .then(console.log) // print 'success'
 ```
 
-### 2. Todos
+### 2. 这是目前发现的唯一的坑
 
-##### 1. if an async task returning a proxy, make it promise-unlike.
+##### 1. 如果被`ayncProxy`封装的对象是一个代理，或者他的某个属性或方法返回一个代理，务必在代理中处理`then`（使该代理逃避`isPromise`的检测）.
 ```javascript
 class Task {
   proxyReturningFunc() {
@@ -130,18 +130,3 @@ class Task {
   }
 }
 ```
-
-### 3. Limitations
-
-##### 1. you will never console.log or serialize a synced object
-```javascript
-console.log(taskSync.taskPromise) // stack overflow error
-console.log(await taskSync.taskPromise) // it may work
-```
-##### 2. [BUG] promise.then do not return a promise, it will be fixed in the next release.
-```javascript
-taskSync.taskPromise.getSuccessPromise()
-  .then(console.log) // print success
-  .then(console.log) // unable run as expected
-```
-##### 3. typeof do not work
